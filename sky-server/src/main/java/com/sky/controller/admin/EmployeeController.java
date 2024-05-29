@@ -90,7 +90,7 @@ public class EmployeeController {
     }
 
     /**
-     * 分页查询
+     * 分页查询 一般只有查询操作才会使用泛型
      * @param employeePageQueryDTO 数据传输对象
      * @return Result
      * */
@@ -100,5 +100,19 @@ public class EmployeeController {
         log.info("员工分页查询，参数为：{}",employeePageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    /**
+     * 启用禁用员工账号
+     * @param status
+     * @param id
+     * @return
+     * */
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用禁用员工账号")
+    public Result startOrStop(@PathVariable Integer status, Long id){
+        log.info("启用禁用员工账号为：{} {}",status,id);
+        employeeService.startOrStop(status,id);
+        return Result.success();
     }
 }

@@ -32,4 +32,8 @@ public interface EmployeeService {
      * 启用禁用员工账号
      * */
     void startOrStop(Integer status, Long id);
+
+    Employee getById(Long id);
+
+    void update(EmployeeDTO employeeDTO);
 }

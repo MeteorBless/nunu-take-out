@@ -53,6 +53,7 @@ public class AutoFillAspect {
             return;
         }
 
+        // 规定插入删除第一个字段为实体类对象
         Object entity = args[0];
         //准备赋值的数据
         LocalDateTime now = LocalDateTime.now();
